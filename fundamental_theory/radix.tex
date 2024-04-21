@@ -1,0 +1,400 @@
+\documentclass[a5j, uplatex, dvipdfmx]{jsbook}
+\pagestyle{headings}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{bm}
+\usepackage{braket}
+\usepackage{ascmac}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{comment}
+\usepackage{hyperref}
+\usepackage{pxjahyper}
+\usepackage{subfiles}
+\usepackage{makeidx}
+\usepackage{listings, jlisting}
+\usepackage{tcolorbox}
+    \tcbuselibrary{breakable, skins, theorems}
+\usepackage{lipsum}
+\usepackage{longtable}
+\usepackage[twoside,top=20truemm,bottom=10truemm,inner=19.2truemm,outer=10truemm]{geometry}
+\usepackage{ulem}
+
+%ここからソースコードの表示に関する設定
+\lstset{
+    language={C},
+    basicstyle={\ttfamily},
+    identifierstyle={\small},
+    commentstyle={\smallitshape},
+    keywordstyle={\small\bfseries},
+    ndkeywordstyle={\small},
+    stringstyle={\small\ttfamily},
+    frame={tb},
+    breaklines=true,
+    columns=[l]{fullflexible},
+    numbers=left,
+    xrightmargin=0zw,
+    xleftmargin=3zw,
+    numberstyle={\scriptsize},
+    stepnumber=1,
+    numbersep=1zw,
+    lineskip=-0.5ex
+}
+%ここまでソースコードの表示に関する設定
+
+%index関連
+\newcommand{\makeidxhead}[1]{\textbf{\underline{■ #1 ■}}}
+\newcommand{\symbolindexname}{数字・記号}
+
+\graphicspath{{./fig/}{../fig/}}
+
+%式番号の設定
+\makeatletter
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{section}.\arabic{equation}}%式に章番号を付加
+\@addtoreset{equation}{section}
+\makeatother
+
+%定理環境など
+\newtcbtheorem[number within=section]{thm}{定理}{enhanced, %TikZの内部処理を導入する．ある程度複雑なものには必須．
+    attach boxed title to top left={xshift=5mm,yshift=-3mm}, 
+    boxed title style={colframe = green!35!black, colback = white},
+    coltitle = black,
+    colback = white,
+    colframe = green!35!black,
+    fonttitle = \bfseries,
+    breakable = true,
+    top = 4mm,
+}{thm}
+
+\newtcbtheorem[number within=section]{dfn}{定義}{enhanced, %TikZの内部処理を導入する．ある程度複雑なものには必須．
+    attach boxed title to top left={xshift=5mm,yshift=-3mm}, 
+    boxed title style={colframe = green!35!black, colback = white},
+    coltitle = black,
+    colback = white,
+    colframe = green!35!black,
+    fonttitle = \bfseries,
+    breakable = true,
+    top = 4mm
+}{dfn}
+
+\newtcbtheorem[number within=section]{rem}{コメント}{enhanced, %TikZの内部処理を導入する．ある程度複雑なものには必須．
+    attach boxed title to top left={xshift=5mm,yshift=-3mm}, 
+    boxed title style={colframe = green!35!black, colback = white},
+    coltitle = black,
+    colback = white,
+    colframe = green!35!black,
+    fonttitle = \bfseries,
+    breakable = true,
+    top = 4mm
+}{rem}
+
+\newtcbtheorem[number within=section]{prob}{例題}{enhanced, %TikZの内部処理を導入する．ある程度複雑なものには必須．
+    attach boxed title to top left={xshift=5mm,yshift=-3mm}, 
+    boxed title style={colframe = green!35!black, colback = white},
+    coltitle = black,
+    colback = white,
+    colframe = green!35!black,
+    fonttitle = \bfseries,
+    breakable = true,
+    top = 4mm
+}{prob}
+
+\newtcbtheorem[number within=section]{prop}{命題}{enhanced, %TikZの内部処理を導入する．ある程度複雑なものには必須．
+    attach boxed title to top left={xshift=5mm,yshift=-3mm}, 
+    boxed title style={colframe = green!35!black, colback = white},
+    coltitle = black,
+    colback = white,
+    colframe = green!35!black,
+    fonttitle = \bfseries,
+    breakable = true,
+    top = 4mm
+}{prop}
+
+\newtcbtheorem[number within=section]{axiom}{公理}{enhanced, %TikZの内部処理を導入する．ある程度複雑なものには必須．
+    attach boxed title to top left={xshift=5mm,yshift=-3mm}, 
+    boxed title style={colframe = green!35!black, colback = white},
+    coltitle = black,
+    colback = white,
+    colframe = green!35!black,
+    fonttitle = \bfseries,
+    breakable = true,
+    top = 4mm
+}{axiom}
+
+\newtcbtheorem[number within=section]{lem}{補題}{enhanced, %TikZの内部処理を導入する．ある程度複雑なものには必須．
+    attach boxed title to top left={xshift=5mm,yshift=-3mm}, 
+    boxed title style={colframe = green!35!black, colback = white},
+    coltitle = black,
+    colback = white,
+    colframe = green!35!black,
+    fonttitle = \bfseries,
+    breakable = true,
+    top = 4mm
+}{lem}
+
+\newtcbtheorem[number within=section]{cor}{系}{enhanced, %TikZの内部処理を導入する．ある程度複雑なものには必須．
+    attach boxed title to top left={xshift=5mm,yshift=-3mm}, 
+    boxed title style={colframe = green!35!black, colback = white},
+    coltitle = black,
+    colback = white,
+    colframe = green!35!black,
+    fonttitle = \bfseries,
+    breakable = true,
+    top = 4mm
+}{cor}
+
+\newtcbtheorem[number within=section]{ex}{例}{enhanced, %TikZの内部処理を導入する．ある程度複雑なものには必須．
+    attach boxed title to top left={xshift=5mm,yshift=-3mm}, 
+    boxed title style={colframe = green!35!black, colback = white},
+    coltitle = black,
+    colback = white,
+    colframe = green!35!black,
+    fonttitle = \bfseries,
+    breakable = true,
+    top = 4mm
+}{ex}
+
+\newtcbtheorem[number within=section]{exc}{演習}{enhanced, %TikZの内部処理を導入する．ある程度複雑なものには必須．
+    attach boxed title to top left={xshift=5mm,yshift=-3mm}, 
+    boxed title style={colframe = green!35!black, colback = white},
+    coltitle = black,
+    colback = white,
+    colframe = green!35!black,
+    fonttitle = \bfseries,
+    breakable = true,
+    top = 4mm
+}{exc}
+
+\newcommand{\proof}{\textbf{証明.}\ }
+\newcommand{\qed}{$\blacksquare$}
+\newcommand{\idx}[1]{\textbf{#1}\index{#1}}
+\newcommand{\ind}[2]{\textbf{#1}\index{#2@#1}}
+\newcommand{\emphasize}[1]{\textcolor{red}{\textbf{#1}}}
+
+%数学記号
+%\newcommand{\set}[1]{\{ #1\}}
+\newcommand{\diff}{\mathrm{d}}
+\newcommand{\bracket}[1]{\Bigl( #1\Bigr)}
+\newcommand{\bigbrac}[1]{\Bigl[ #1\Bigr]}
+
+\newcommand{\for}{\mathrm{for}}
+\newcommand{\as}{\mathrm{as}}
+\newcommand{\st}{\mathrm{s.t.}}
+
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bZ}{\mathbb{Z}}
+\newcommand{\bQ}{\mathbb{Q}}
+
+\newcommand{\rT}{\mathrm{T}}
+\newcommand{\rank}{\mathrm{rank}\ }
+
+%物理の記号
+%\newcommand{\ket}[1]{\left| #1 \right \rangle}
+%\newcommand{\bra}[1]{\left \langle #1 \right|}
+\newcommand{\inpro}[2]{\langle #1 \ket{#2}}
+\newcommand{\mean}[1]{\langle #1\rangle}
+\newcommand{\Bigmean}[1]{\Bigl \langle #1\Bigr \rangle}
+
+%\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Hil}{\mathcal{H}}
+\newcommand{\Fock}{\mathcal{F}}
+
+%人名
+\newcommand{\sch}{Schor\"{o}dinger}
+
+%その他
+\newcommand{\vep}{\varepsilon}
+
+\title{基本情報技術者への道:基礎理論編}
+\author{いろはす}
+
+\begin{document}
+\maketitle
+
+\chapter{基数変換}
+    \ind{2進法}{2しんほう}という言葉を聞いたことがあるだろうか．
+    これは，数を表現する「表示の仕方」の一つに付けられた名称である．
+
+    コンピュータ内でデータを表わすのに，$0$と$1$の数字の羅列，たとえば:
+    \begin{equation*}
+        01011010
+    \end{equation*}
+    のようなものが用いられるという話はよく知られているだろう．
+    この「$0$と$1$だけでデータを表現する」方法と，上で述べた2進法の間には密接な関係がある．
+    従って，IT関連の文脈で2進法や，その周辺知識が必要になる場面は少なくない．
+    さらに，たった今「周辺知識」と書いたものの中には8進法や16進法など他の進法，
+    またそれらと2進法との間での相互変換といったものまで含まれている．
+    つまり，コンピュータを学ぶには一般の「$N$進法」に関するある程度体系立った知識が要求されるのである．
+
+    さて，\ind{進法}{しんほう}とは数の「表示の仕方」だと上で述べた．
+    ここで「数」と書いたのは，数学的には\ind{実数}{じっすう}の意味である．
+    しかし，数学的対象としての実数は概念そのものが少々高度でとっつきにくいものであるし，
+    基本情報の範囲内だとその部分集合である\ind{有理数}{ゆうりすう}さえ知っていれば
+    充分であることが多い．
+    従って，このテキストでは有理数だけに話を限定して解説を行う．
+    まずは，そのさらに部分集合である\ind{整数}{せいすう}の表示から話をはじめよう．
+
+\section{整数の表示}
+    まずは，\ind{整数}{せいすう}の概念について簡単に復習しよう．
+
+    殆どの人にとって，生まれて初めて目にする「数」概念は\ind{自然数}{しぜんすう}であると思われる．
+    自然数は謂わば「ものを数える」ときに用いられる「数」で，
+    \begin{equation*}
+        1, 2, 3,...
+    \end{equation*}
+    とどこまでも果てしなく続いていく記号の羅列である\footnote{
+        自然数に$0$を含めるかどうかには，流儀によって違いがある．
+        筆者としては，そんなものは本質的な問題ではないという意見であるし，
+        文献ごとにちゃんと断って使用すればどちらでもよいと思う．
+        このテキストでは，ひとまず$0$は\emphasize{含めない}流儀でいく．
+    }．
+    たとえば"$2$"という数であれば，
+    \begin{itemize}
+        \item $2$個のりんご
+        \item $2$人の生徒
+        \item $2$本のえんぴつ
+    \end{itemize}
+    などといったように，自然数はあらゆる「ものの個数」に対応させて考えることができる．
+    だからこそ「ものを数える」のに使えるのであるし，「数える」ことの延長に
+    「足し算」や「掛け算」といった演算があるわけである．
+
+    さて，整数は，自然数に$0$と\ind{負の数}{ふのすう}:
+    \begin{equation*}
+        -1, -2, -3,...
+    \end{equation*}
+    を付け加えた数の体系である．整数全体を一直線に並べて書くなら，
+    \begin{equation*}
+        .., -3, -2, -1, 0, 1, 2, 3, ...
+    \end{equation*}
+    のような形になる．
+    整数にも四則演算があるが，その規則については紙面の都合上割愛する．
+
+    さて，整数の表示法としての\ind{進法}{しんほう}について見ていこう．
+    我々は，数を書き表すのに記号を必要とする．
+    上の表記は所謂「アラビア数字」による表記であるが，
+    別に特段この表記に拘る理由もないであろう．
+    例えば，漢数字だと自然数は
+    \begin{equation*}
+        一, 二, 三,...
+    \end{equation*}
+    のようになるし，ローマ数字だと
+    \begin{equation*}
+        \mathrm{I}, \mathrm{II}, \mathrm{III},...
+    \end{equation*}
+    のようになる．
+
+    どの表記法でも，各々の数字に単一の記号が割り当てられている．
+    少なくとも$1$から$3$までで見る限り，漢数字やローマ数字の記号はわかりやすい．
+    それぞれの数に対応する「棒の本数」をそのまま記号にしている．
+    しかし上で述べたとおり，
+    自然数というのはどこまでも果てしなく続く記号の体系であるから，
+    数が大きくなっていくのに伴いどこまでも同じ「棒の本数」という方式を
+    一貫して用いる訳にはいかなくなる．
+    単純にスペースの問題もあるし，
+    何より読んだり書いたりが恐ろしく大変なことになるのは容易に想像できよう．
+
+    そこで登場するのが，\ind{桁}{けた}と\ind{繰り上がり}{くりあがり}の方式である．
+    アラビア数字で言うなら，単体で用いられる記号は
+    \begin{equation*}
+        0,1,2,3,4,5,6,7,8,9
+    \end{equation*}
+    の$10$個のみである．
+    $9$より大きな数は，上記の組み合わせで表現する．すなわち:
+    \begin{equation*}
+        0, 1,..., 9, 10, 11,..., 19, 20, 21,..., 99, 100, 101,...
+    \end{equation*}
+    のような具合である．
+
+    漢数字とローマ数字の場合も含めて語り出すと少々話がややこしくなるので，
+    以降はアラビア数字に限定して話をしよう．
+    上記の「繰り上がり」方式では，
+    数が一つ大きくなるごとに「一の位」がカウントアップされていく．
+    しかし各桁は"9"までしか数えられないから，
+    それより大きくなろうとすると桁が「あふれ」て次の「十の位」がカウントアップされ，
+    「一の位」は"$0$"に戻る．
+    我々が日常で用いる，この「数え方」を\ind{10進法}{10しんほう}と呼ぶ．
+    勿論，「$10$になったら次へ進む」から$10$進法なのである．
+
+    ここまで来ると，「$2$進法」がどんなものか，
+    読者には想像がついているのではないだろうか．
+    試しに，2進法で$0$から$10$(この"10"は勿論$10$進法表記)まで数えてみて欲しい．
+    言い換えれば，次の表を自分で埋めてみてほしい:
+
+    \begin{center}
+        \begin{tabular}{|c||c|c|c|c|c|c|c|c|c|c|c|}\hline
+            10進法 & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 \\ \hline
+            2進法 &&&&&&&&&&& \\ \hline
+        \end{tabular}    
+    \end{center}
+    
+    \begin{rem}{2進法ジョーク}{binary-joke}
+        余談だが，次のような有名なジョークがある:
+        
+        \begin{quote}
+            A「世の中には，10種類の人間がいる．$2$進法を理解している人間と，そうでない人間だ」
+
+            B「残りの8種類は？」
+
+            A「つまり君は後者だ」
+        \end{quote}
+        
+        これを面白いと感じるかどうかは人それぞれだが，
+        ともあれ異なる進法の間を行ったり来たりすることの面倒さが
+        よくわかる例である．
+    \end{rem}
+
+    さて，表は埋まっただろうか．
+    答え合わせの代わりに，$2$進法の規則を簡単にまとめておく:
+
+    \begin{itemize}
+        \item 使う記号は"$0$"と"$1$"の$2$つのみ
+        \item 各桁は，$0$から始まり$1$ずつカウントアップする
+        \item $1$からさらにカウントアップする際は，次の桁に繰り上がりその桁は$0$に戻る
+    \end{itemize}
+
+    一般に「$N$進法」と言ったとき，この$N$のことを\ind{基数}{きすう}(base/radix)という．
+    同じ数を，異なる進法で表記できることは既に見たとおりである．
+    ある数について，特定の進法による表示が与えられているとき，
+    その別の進法による表示を求めることを\ind{基数変換}{きすうへんかん}という．
+    基本情報技術者試験では，例えば次のような形式で出題される:
+
+    \begin{quote}
+        $10$進法における「$5$」の，$2$進法による表示を求めよ．
+    \end{quote}
+    
+    答えは「$101$」，という具合である．
+    ただし上記は「$0$から順に数える」ことで簡単に答えられる問題であったが，
+    実際の試験ではもっと大きな数字で出題されることが多いため，
+    解答には一般的な「公式」が必要になる．
+    公式については後ほど述べるが，
+    その前に背後の理屈を知っておく必要があるだろう．
+    言い換えれば，「進法とは何か」ということをもう少し形式的に
+    考えておく必要があるのである．
+
+    \begin{rem}{理屈を知ることの価値}{}
+        試験合格のために，公式の背後の理屈まで理解する必要があるかと問われたとき，
+        少なくとも筆者には自信を持って「Yes」とは答えられない．
+        しかし，資格マニアの方ならともかくとして，
+        単に「資格がゴール」の人というのは割合的に少ないのではないだろうか．
+        当たり前のことだが，試験のために勉強する事柄というのは，
+        その先の実務レベルで多少なりとも必要になる知識だから学ぶのである．
+
+        その観点で言うと，こと基数変換に関して，
+        公式の丸暗記という行為はほぼ無意味と言っていい．
+        いま，基数変換をやってくれるPCやWebのアプリなど
+        探せばいくらでも出てくるであろう．
+        人が自分で丸暗記した公式に突っ込んで計算するメリットなど存在しない．
+        基数変換の問題が解けるようになることの意義は，
+        そもそも「進数とは何か」という原理的な問題をある程度
+        自分の頭で考え，そこに自分なりの「理解の仕方」を持てたという
+        経験が得られることに他ならないのだ．
+
+        問題は「理解の試金石」である．
+        いま一体どれだけの人が，正しく問題を「使えて」いるだろうか？
+    \end{rem}
+
+\end{document}
