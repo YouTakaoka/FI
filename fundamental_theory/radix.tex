@@ -167,6 +167,17 @@
     top = 4mm
 }{exc}
 
+\newtcbtheorem[number within=section]{meth}{解法}{enhanced, %TikZの内部処理を導入する．ある程度複雑なものには必須．
+    attach boxed title to top left={xshift=5mm,yshift=-3mm}, 
+    boxed title style={colframe = green!35!black, colback = white},
+    coltitle = black,
+    colback = white,
+    colframe = green!35!black,
+    fonttitle = \bfseries,
+    breakable = true,
+    top = 4mm
+}{meth}
+
 \newcommand{\proof}{\textbf{証明.}\ }
 \newcommand{\qed}{$\blacksquare$}
 \newcommand{\idx}[1]{\textbf{#1}\index{#1}}
@@ -523,9 +534,9 @@
         x_iは整数,\ 0 \leq x_i < N
     \end{equation*}
     という制約を満たす必要がある．また，この表記\eqref{eq:integer-radix-N-expression}自体の意味は，
-    \begin{equation*}
-        x = (x_n \cdots x_1 x_0)_N
-    \end{equation*}
+    \begin{equation}
+        x = x_0 N^0 + x_1 N^1 + \cdots + x_n N^n  \label{eq:integer-radix-N-interpretation}
+    \end{equation}
     という式が主張する通りである．
 
     以上より，次の定義を得る:
@@ -571,53 +582,25 @@
     従って，上記の方法により任意の整数の$N$進法表記が得られる．
 
 \subsection{整数の基数変換}
-    $N$進法表示が出てくるたび，いちいち$(x_l \cdots x_0)_N$のように書くのも面倒になってきた．
-    これからは，$(\tilde{x})_N$（$\tilde{x}$は$x$の$N$進法表示）のような書き方も使うことにしよう．
-    要は単に，$(x_l \cdots x_0)_N$の括弧の中身"$x_l \cdots x_0$"を簡単に"$\tilde{x}$"のように書いただけだ．
-    例えば$N=10$に固定し，$x = (123)_{10}$なら$\tilde{x}$は$123$である．
-
     さて，$N$進法から$10$進法への変換に関しては，
     上で考えた「表記の意味」がほぼそのままその方法となる．
-    いま，正整数$x$の$N$進法表記:
-    \begin{equation*}
-        x = (x_n \cdots x_1 x_0)_N
-    \end{equation*}
-    が与えられているとしよう．これは取りも直さず，
-    \begin{equation*}
-        x = x_0 N^0 + x_1 N^1 + \cdots + x_n N^n
-    \end{equation*}
-    という意味であった．
+
+    いま，正整数$x$の$N$進法表記\eqref{eq:integer-radix-N-expression}が与えられているとしよう．
+    これは取りも直さず，式\eqref{eq:integer-radix-N-interpretation}の意味であった．
+    ここで式\eqref{eq:integer-radix-N-interpretation}の右辺を，
+    我々のよく知っている$10$進法の足し算や掛け算の公式を使って計算すれば，
+    それがそのまま$x$の$10$進法表示である．
     
-    前提として，実際の応用場面において，我々は$N$の$10$進法表記を知っている．
-    実際，我々がよく使う進法を挙げてみよう．
-    $2$進法，$8$進法，$16$進法，…．うむ．
-    ここまで見る限り，「あれ，この$N(=2,8,16,\dots)$って$10$進法でどう表わすんだっけ？」となる状況は想像できないだろう．
-    そこでいま，$N$の$10$進法表記を$\tilde{N}$として，$N = (\tilde{N})_{10}$としよう．
-
-    同様に，$x_0, \dots, x_n$の$10$進法表記も，「すぐには（計算しないと）分からない」という状況は発生しない．
-    これらの「桁」には通常一文字で「数」を表わす記号が入るが，その$10$進法による表示は通常直ちにわかる．
-    例えば，$16$進法だと$9$より大きな数字にアルファベットの$A, \dots, F$をあてがうが，
-    もちろんこれらは直ちに$10$進法に変換できる．
-    また，$9$進以下の進法であれば（使ってる記号が$10$進法の一部分なのだから）論はないであろう．
-    よって，$x_0, \dots, x_n$の$10$進法表記を（既知のものとして）
-    $\tilde{x}_0, \dots, \tilde{x}_n$と書く．
-
-    ...(執筆中)...
-
-    \begin{thm}{正整数の$10$進法への変換}{conversion-to-decimal-integer}
+    \begin{meth}{整数の基数変換:$N$進法から$10$進法}{radix-conversion-from-N-to-10-integer}
         $x$を正の整数，$N$を$2$以上の整数とする．
+        $x$の$N$進法表記$(x_n \cdots x_1 x_0)_N$（ただし$n$は$0$以上の整数）が与えられているとき，
+        $x$の$10$進法表記は式
         \begin{equation*}
-            x = (x_n \cdots x_1 x_0)_N
+            x = x_0 N^0 + x_1 N^1 + \cdots + x_n N^n
         \end{equation*}
-        であるとき，
-        \begin{equation*}
-            x = (\tilde{x}_0)_{10}(\tilde{N})_{10}^0 + \cdots + (\tilde{x}_n)_{10}(\tilde{N})_{10}^n
-        \end{equation*}
-        でもある（これが$10$進法による$x$の表記を与える）．
-        ただし，$\tilde{x}_0, \dots, \tilde{x}_n, \tilde{N}$は
-        $x_0, \dots, x_n, N$の$10$進法表記である．
-    \end{thm}
-
+        を（$10$進法で）計算することで得られる．
+    \end{meth}
+    
 \appendix
 \chapter{指数法則}
     ...
