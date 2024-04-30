@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p3.9.1-u1.27-210218-2.6 (utf8.uptex) (TeX Live 2022/dev/Debian) (preloaded format=uplatex 2024.4.3)  30 APR 2024 08:57
+This is e-upTeX, Version 3.141592653-p3.9.1-u1.27-210218-2.6 (utf8.uptex) (TeX Live 2022/dev/Debian) (preloaded format=uplatex 2024.4.3)  30 APR 2024 13:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -817,21 +817,21 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 7.39746pt on input line 256.
  [4] [5] [6] [7] [8] [9]
 LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <7> not available
-(Font)              Font shape `JT2/mc/m/n' tried instead on input line 519.
+(Font)              Font shape `JT2/mc/m/n' tried instead on input line 536.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 519.
+(Font)              scaled to size 6.47278pt on input line 536.
 LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <7> not available
-(Font)              Font shape `JY2/mc/m/n' tried instead on input line 519.
+(Font)              Font shape `JY2/mc/m/n' tried instead on input line 536.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 519.
+(Font)              scaled to size 6.47278pt on input line 536.
 LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <6> not available
-(Font)              Font shape `JT2/mc/m/n' tried instead on input line 521.
+(Font)              Font shape `JT2/mc/m/n' tried instead on input line 538.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 521.
+(Font)              scaled to size 5.5481pt on input line 538.
 LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <6> not available
-(Font)              Font shape `JY2/mc/m/n' tried instead on input line 521.
+(Font)              Font shape `JY2/mc/m/n' tried instead on input line 538.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 521.
+(Font)              scaled to size 5.5481pt on input line 538.
  [10] [11] [12]
 付録A
 [13
@@ -849,12 +849,12 @@ Package rerunfilecheck Info: File `radix.out' has not changed.
 (rerunfilecheck)             Checksum: 99B38F0470C6514F38BC95F6C5C17756;499.
  ) 
 Here is how much of TeX's memory you used:
- 27182 strings out of 479842
- 528851 string characters out of 5887290
+ 27180 strings out of 479842
+ 528811 string characters out of 5887290
  1102161 words of memory out of 5000000
- 45025 multiletter control sequences out of 15000+600000
+ 45023 multiletter control sequences out of 15000+600000
  523281 words of font info for 141 fonts, out of 8000000 for 9000
  269 hyphenation exceptions out of 8191
  83i,11n,89p,525b,1252s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on radix.dvi (17 pages, 70720 bytes).
+Output written on radix.dvi (17 pages, 73400 bytes).
