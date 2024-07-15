@@ -1,11 +1,11 @@
 # Fdb version 3
-["dvipdf"] 1714460474 "radix.dvi" "radix.pdf" "radix" 1714460475
-  "radix.dvi" 1714460474 74248 f0576d03b8d7c5cf4099a262ac9a9f36 "latex"
+["dvipdf"] 1721040781 "radix.dvi" "radix.pdf" "radix" 1721040785
+  "radix.dvi" 1721040780 74264 12f6c37f006097d9624655efc8412e29 "latex"
   (generated)
   "radix.pdf"
-["latex"] 1714460472 "/home/yu/Projects/fundamental_information/fundamental_theory/radix.tex" "radix.dvi" "radix" 1714460475
+["latex"] 1721040776 "/home/yu/Projects/fundamental_information/fundamental_theory/radix.tex" "radix.dvi" "radix" 1721040785
   "/etc/texmf/web2c/texmf.cnf" 1671356394 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/yu/Projects/fundamental_information/fundamental_theory/radix.tex" 1714460470 28565 e607634e3f9bca6cf1792b44de22b0c2 ""
+  "/home/yu/Projects/fundamental_information/fundamental_theory/radix.tex" 1721040773 28570 6373e56b21f818950b2e437e6dfa8851 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -213,11 +213,11 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/web2c/euptex/uplatex.fmt" 1712126290 1509108 d1c8f058a16a90e941706423da1fab1a ""
-  "radix.aux" 1714460474 2965 7673ae7c8c46a691913c4ee649d237c9 "latex"
-  "radix.out" 1714460474 499 99b38f0470c6514f38bc95f6c5c17756 "latex"
-  "radix.tex" 1714460470 28565 e607634e3f9bca6cf1792b44de22b0c2 ""
+  "radix.aux" 1721040780 2965 7673ae7c8c46a691913c4ee649d237c9 "latex"
+  "radix.out" 1721040780 499 99b38f0470c6514f38bc95f6c5c17756 "latex"
+  "radix.tex" 1721040773 28570 6373e56b21f818950b2e437e6dfa8851 ""
   (generated)
   "radix.aux"
-  "radix.out"
   "radix.dvi"
   "radix.log"
+  "radix.out"
