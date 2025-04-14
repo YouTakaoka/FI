@@ -118,6 +118,6 @@ $$
 
 また， $x$ を $N$ で割った商と余りはそれぞれ，各桁を１つずつ右にずらしたものと， $1$ の位の数字に等しい：
 
-$$ x = N\underbrace{(x_n \cdots x_1)_N}_{syo} + \underbrace{x_0}_{amari}. $$
+$$ x = N(x_n \cdots x_1)_N + x_0. $$
 
 aaa
