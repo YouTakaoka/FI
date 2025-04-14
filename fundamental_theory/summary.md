@@ -122,3 +122,4 @@ $$
 x = N\underbrace{(x_n \cdots x_1)_N}_{商} + \underbrace{x_0}_{余り}.
 $$
 
+ 
