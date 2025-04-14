@@ -119,6 +119,10 @@ $$
 また， $x$ を $N$ で割った商と余りはそれぞれ，各桁を１つずつ右にずらしたものと， $1$ の位の数字に等しい：
 
 $$
-x = N (x_n \cdots x_1)_N + \underbrace{x}_{余り}. 
+x = N (x_n \cdots x_1)_N + \underbrace{x_0}_{=2}. 
 $$
 
+
+$$
+0 \leq \underbrace{5 - 1\cdot 3}_{=2} < 3
+$$
